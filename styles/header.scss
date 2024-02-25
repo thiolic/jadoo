@@ -1,0 +1,130 @@
+.header {
+	$this: &;
+	content: '';
+	display: block;
+	padding: 25px 0;
+
+	@media screen and (max-width: 1279px) {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		left: 0;
+		z-index: 1000;
+		background-color: var(--color-white);
+		box-shadow: 0px 1px 0px 0px var(--color-text);
+	}
+
+	&__container {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__logo {
+		flex-shrink: 0;
+	}
+
+	&__components {
+		align-items: center;
+		display: flex;
+		justify-content: flex-end;
+		flex-grow: 1;
+	}
+
+	&__buttons {
+		align-items: center;
+		display: flex;
+		gap: 30px;
+		margin-left: 40px;
+
+		@media screen and (max-width: 767px) {
+			display: none;
+		}
+	}
+
+	&__button {
+		border-radius: 5px;
+		padding: 4px 19px;
+
+		&:hover,
+		&:focus {
+			background-color: var(--color-orange);
+			border-color: var(--color-orange);
+			color: var(--color-white);
+			transition: all 250ms ease-in-out;
+		}
+	}
+
+	&__button--bordered {
+		border: 1px solid var(--color-main);
+	}
+
+	&__lang {
+		margin-left: 38px;
+		position: relative;
+
+		&-button {
+			color: inherit;
+			align-items: center;
+			display: flex;
+			gap: 7px;
+			text-transform: uppercase;
+			height: 50px;
+			width: 50px;
+			background: transparent;
+			border: 0;
+			border-radius: var(--btn-radius);
+			cursor: pointer;
+			transition: background-color 250ms ease-in-out,
+				color 250ms ease-in-out;
+
+			&:hover,
+			&:focus {
+				background-color: var(--color-orange);
+				color: var(--color-white);
+
+				#{$this}__lang-button__icon {
+					svg {
+						stroke: var(--color-white);
+						transform: rotate(180deg);
+					}
+				}
+			}
+		}
+
+		&-button__icon {
+			svg {
+				fill: none;
+				stroke: var(--color-main);
+				transition: all 250ms ease-in-out;
+			}
+		}
+
+		&-list {
+			background-color: var(--color-main);
+			color: var(--color-white);
+			position: absolute;
+			top: 50px;
+			left: 0;
+			width: 100%;
+			opacity: 0;
+			transform: translateY(-15px);
+			visibility: hidden;
+			transition: visibility 200ms ease-in-out,
+				transform 350ms ease-in-out, opacity 200ms ease-in-out;
+
+			&.is-open {
+				opacity: 1;
+				transform: translateY(0);
+				visibility: visible;
+			}
+		}
+
+		&-item {
+			align-items: center;
+			justify-content: center;
+			display: flex;
+			height: 50px;
+		}
+	}
+}
