@@ -17,7 +17,7 @@ a {
 
 	&::before {
 		content: '';
-		background-image: url('./assets/decore.png');
+		background-image: url('../assets/decor.png');
 		background-size: cover;
 		position: absolute;
 		z-index: -1;
